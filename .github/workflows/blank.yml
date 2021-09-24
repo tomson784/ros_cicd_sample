@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: test
 
 # Controls when the workflow will run
 on:
@@ -26,7 +26,7 @@ jobs:
       - name: build
         run: |
           bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \
-          mkdir -p /catkin_ws/src; \
-          cd ..; mv ros_cicd_sample /catkin_ws/src/ros_cicd_sample; \
-          cd /catkin_ws/src/ros_cicd_sample; ls -a; \
+          mkdir -p /catkin_ws/src/ros_cicd_sample; \
+          mv * /catkin_ws/src/ros_cicd_sample; \
+          cd /catkin_ws/src/ros_cicd_sample; pwd; ls -a; \
           cd /catkin_ws; catkin_make'
