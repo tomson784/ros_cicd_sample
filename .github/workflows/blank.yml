@@ -22,9 +22,11 @@ jobs:
       - name: Example
         run: |
           pwd
-          ls 
+          ls -a
       - name: build
         run: |
           bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \
-          mkdir -p /catkin_ws/src; cd /catkin_ws; \
-          catkin_make'
+          mkdir -p /catkin_ws/src; \
+          cd ..; mv ros_cicd_sample /catkin_ws/src/ros_cicd_sample; \
+          cd /catkin_ws/src/ros_cicd_sample; ls -a; \
+          cd /catkin_ws; catkin_make'
