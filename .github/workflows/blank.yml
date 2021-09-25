@@ -12,9 +12,12 @@ on:
 
 jobs:
   deploy:
+    strategy:
+      matrix:
+        ros-distro: [melodic, noetic]
     runs-on: ubuntu-18.04
     container:
-      image: ros:melodic
+      image: ros:${{ matrix.ros-distro }}
 
     steps:
       - uses: actions/checkout@v2
