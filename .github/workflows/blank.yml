@@ -26,7 +26,8 @@ jobs:
       - name: build
         run: |
           bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \
-          mkdir -p /catkin_ws/src/ros_cicd_sample; \
-          mv * /catkin_ws/src/ros_cicd_sample; \
-          cd /catkin_ws/src/ros_cicd_sample; pwd; ls -a; \
+          export REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##"); \
+          mkdir -p /catkin_ws/src/$REPOSITORY; \
+          mv * /catkin_ws/src/$REPOSITORY; \
+          cd /catkin_ws/src/$REPOSITORY; pwd; ls -a; \
           cd /catkin_ws; catkin_make'
