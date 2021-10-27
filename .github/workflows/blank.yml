@@ -26,7 +26,7 @@ jobs:
         run: |
           pwd
           ls -a
-      - name: build
+      - name: Build
         run: |
           bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \
           export REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##"); \
@@ -34,3 +34,8 @@ jobs:
           mv * /catkin_ws/src/$REPOSITORY; \
           cd /catkin_ws/src/$REPOSITORY; pwd; ls -a; \
           cd /catkin_ws; catkin_make'
+      - name: Test
+        run: |
+          bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \
+          export REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##"); \
+          cd /catkin_ws; catkin_make run_tests'
