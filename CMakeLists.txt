@@ -185,8 +185,10 @@ add_dependencies(add_two_ints_client ros_cicd_sample_gencpp)
 #############
 
 ## Add gtest based cpp test target and link libraries
-catkin_add_gtest(${PROJECT_NAME}-test test/test_sample.cpp test/test_sample.test)
+catkin_add_gtest(${PROJECT_NAME}-test test/test_sample.cpp)
 if(TARGET ${PROJECT_NAME}-test)
+  # find_package(rostest REQUIRED)
+  # add_rostest(test/test_sample.test)
   # target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
   target_link_libraries(${PROJECT_NAME}-test ${catkin_LIBRARIES})
 endif()
