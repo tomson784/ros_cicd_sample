@@ -1,8 +1,9 @@
 <launch>
   <node name="talker" pkg="ros_cicd_sample" type="talker.py" />
+  <!-- <node name="a" pkg="ros_cicd_sample" type="a" /> -->
 
   <param name="hztest1/topic" value="chatter" />
-  <param name="hztest1/hz" value="8.0" />
+  <param name="hztest1/hz" value="5.0" />
   <param name="hztest1/hzerror" value="1.0" />
   <param name="hztest1/test_duration" value="5.0" />
   <test test-name="hztest_test" pkg="rostest" type="hztest" name="hztest1" />

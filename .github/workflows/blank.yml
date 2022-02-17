@@ -38,4 +38,5 @@ jobs:
         run: |
           bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \
           export REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##"); \
-          cd /catkin_ws; catkin_make run_tests'
+          cd /catkin_ws; catkin_make run_tests; \
+          catkin_test_results'
